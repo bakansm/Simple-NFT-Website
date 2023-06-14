@@ -1,0 +1,24 @@
+.overlay-hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	display: none;
+	box-sizing: border-box;
+}
+
+.overlay {
+	position: relative;
+}
+
+.overlay:hover .hover-img {
+	opacity: 0.3;
+}
+
+.overlay:hover .overlay-hover {
+	display: flex;
+	cursor: zoom-in;
+}
