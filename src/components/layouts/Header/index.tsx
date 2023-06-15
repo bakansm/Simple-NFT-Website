@@ -11,13 +11,13 @@ export default function Header() {
 
 	useEffect(() => {
 		const temp = localStorage.getItem('walletConnected');
-		if (temp && !isActive) {
+		if (temp) {
 			const activateWallet = async () => {
 				await metaMask.connectEagerly();
 			};
 			activateWallet();
 		}
-	}, [connector, isActive]);
+	}, [connector]);
 
 	return (
 		<nav className='navbar navbar-expand-lg'>

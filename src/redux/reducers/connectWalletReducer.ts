@@ -25,11 +25,11 @@ const connectWallet = async () => {
 
 const disconnectWallet = async () => {
 	if (metaMask?.deactivate) {
+		localStorage.removeItem('walletConnected');
 		await metaMask.deactivate();
-		localStorage.removeItem('walletConnected');
 	} else {
-		await metaMask.resetState();
 		localStorage.removeItem('walletConnected');
+		await metaMask.resetState();
 	}
 };
 

@@ -34,6 +34,7 @@ export default function ProfilePage() {
 					})
 					.catch((error) => console.log(error));
 			};
+			setIsLoading(true);
 			fetchData();
 
 			const fetchBalance = async () => {

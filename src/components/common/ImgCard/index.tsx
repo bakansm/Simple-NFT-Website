@@ -2,10 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import '../../../scss/overlay.scss';
 import LazyLoad from 'react-lazy-load';
 import { getOwnerOf } from '../../../contracts';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
-export default function ImgCard({ data }: any) {
+export default memo(function ImgCard({ data }: any) {
 	const navigate = useNavigate();
+
 	const [owner, setOwner] = useState<string | undefined>(undefined);
 
 	useEffect(() => {
@@ -16,14 +17,13 @@ export default function ImgCard({ data }: any) {
 						setOwner(value);
 					}
 				})
-				.catch((error) => {});
+				.catch((error) => {
+					console.log(error);
+					return;
+				});
 		};
-		if (!data.owner) {
-			fetchOwner();
-		} else {
-			setOwner(data.owner);
-		}
-	}, [data]);
+		fetchOwner();
+	}, [data.id]);
 
 	return (
 		<>
@@ -98,4 +98,4 @@ export default function ImgCard({ data }: any) {
 			</div>
 		</>
 	);
-}
+});

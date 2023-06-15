@@ -17,7 +17,6 @@ export const getAllContractNFTData = async () => {
 				contractNFTList.push({
 					id: i.data.tokenId,
 					imageUrl: `https://ipfs.io/ipfs/${i.data.image.slice(7)}`,
-					// owner: owner,
 				});
 			}
 			return contractNFTList;
@@ -41,14 +40,14 @@ export const getImageFromServer = async (listLength: number) => {
 		.then(async (responses) => {
 			const contractNFTList: any[] = [];
 			for (let i of responses) {
-				// const owner = await getOwnerOf(i.data.tokenId);
 				contractNFTList.push({
 					id: i.data.tokenId,
 					imageUrl: `https://ipfs.io/ipfs/${i.data.image.slice(7)}`,
-					// owner: owner,
 				});
 			}
 			return contractNFTList;
 		})
-		.catch((error) => console.log(error));
+		.catch((error) => {
+			console.log(error);
+		});
 };

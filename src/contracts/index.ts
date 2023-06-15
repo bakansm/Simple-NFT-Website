@@ -63,7 +63,7 @@ export const getAllNFTIds = async () => {
 	return NFTIdsArr;
 };
 
-export const getNFTImageUrlMetadata = async (tokenId: number) => {
+export const getNFTData = async (tokenId: number) => {
 	const config = {
 		method: 'get',
 		maxBodyLength: Infinity,
@@ -73,15 +73,29 @@ export const getNFTImageUrlMetadata = async (tokenId: number) => {
 
 	return await axios
 		.request(config)
-		.then((response) => response.data.image.slice(7))
+		.then((response) => {
+			return {
+				name: response.data.name,
+				description: response.data.description,
+				imageUrl: response.data.image.slice(7),
+			};
+		})
 		.catch((error) => console.log(error));
 };
 
 export const mintNFT = async (address: string) => {
 	try {
-		const mintNft = await contract.safeMint(address);
-		const receipt = await provider.waitForTransaction(mintNft.hash);
-		return receipt;
+		const metamaskProvider = new ethers.providers.Web3Provider(
+			(window as any).ethereum
+		);
+		const metamaskSigner = metamaskProvider.getSigner();
+		const metamaskContract = new ethers.Contract(
+			contractAddress,
+			contractAbi,
+			metamaskSigner
+		);
+		const mintNft = await metamaskContract.safeMint(address);
+		await provider.waitForTransaction(mintNft.hash);
 	} catch (err) {
 		alert('This account cannot mint, pls change the account!');
 	}

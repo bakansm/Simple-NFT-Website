@@ -9,9 +9,15 @@ export default function HomePage() {
 	const [data, setData] = useState<any[] | undefined>(undefined);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [dataLength, setDataLength] = useState<number>(30);
+	const [hasMore, setHasMore] = useState<boolean>(true);
 
-	const fetchMoreData = () => {
-		setDataLength(dataLength + 10);
+	function sleep(ms: number) {
+		return new Promise((resolve) => setTimeout(resolve, ms));
+	}
+
+	const fetchMoreData = async () => {
+		await sleep(1000);
+		setDataLength((prev) => prev + 10);
 	};
 
 	useEffect(() => {
@@ -23,9 +29,11 @@ export default function HomePage() {
 						setIsLoading(false);
 					}
 				})
-				.catch((error) => console.log(error));
+				.catch((error) => {
+					setHasMore(false);
+					console.log(error);
+				});
 		};
-
 		fetchData(dataLength);
 	}, [dataLength]);
 
@@ -40,32 +48,36 @@ export default function HomePage() {
 			) : (
 				<main className='container-fluid d-grid px-lg-5 px-sm-3 pb-4'>
 					<InfiniteScroll
-						dataLength={dataLength} //This is important field to render the next data
+						dataLength={dataLength}
 						next={fetchMoreData}
-						hasMore={true}
-						loader={<h4>Loading...</h4>}
+						hasMore={hasMore}
+						loader={
+							<div className='w-100 d-flex align-items-center justify-content-center'>
+								<div
+									className='spinner-border my-3'
+									role='status'
+								/>
+							</div>
+						}
 						endMessage={
 							<p style={{ textAlign: 'center' }}>
-								<b>Yay! You have seen it all</b>
+								<b>No more NFT to load</b>
 							</p>
 						}>
 						<div
 							className='row row-cols-xxl-6 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1'
 							data-masonry='{"percentPosition": true }'>
 							{data &&
-								data.map((data: any, index: any) => (
+								data.map((dataTemp: any, index: any) => (
 									<div
 										key={index}
 										className='col cards gy-4'>
 										<LazyLoad>
-											<ImgCard data={data} />
+											<ImgCard data={dataTemp} />
 										</LazyLoad>
 									</div>
 								))}
 						</div>
-						{/* <div className='container-fluid d-flex align-items-center justify-content-center'>
-						<button onClick={fetchMoreData}>Load more</button>
-					</div> */}
 					</InfiniteScroll>
 				</main>
 			)}
