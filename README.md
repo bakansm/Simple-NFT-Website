@@ -17,7 +17,9 @@ Xây dựng trang web ( tương tự Pinterest ) có khả năng hiển thị v�
 
 ## Cấu trúc thư mục
 
-Cấu trúc thư mục được tổ chức theo mô hình phân loại (by kind), nghĩa là nhóm các file code có các functions có cùng chức năng lại với nhau.
+- Cấu trúc thư mục được tổ chức theo mô hình phân loại (by kind), nghĩa là nhóm các file code có các functions có cùng chức năng lại với nhau.
+- Những files/components cùng loại mà được sử dụng ở nhiều nơi khác nhau trong project sẽ được lưu trong một thư mục ở ngoài cùng trong thư mục src.
+- Những files/components mà chỉ được sử dụng trong 1 file/component sẽ nằm cùng thư mục với file/component sử dụng chúng.
 
 ### Public
 
@@ -45,7 +47,7 @@ Thư mục src chứa source code của trang web.
 
 - **Pages**
 
-    Thư mục pages chứa các file định dạng một trang web cụ thể. Trong thư mục này, mỗi trang Web là 1 thư mục cụ thể và có thể gồm nhiều components, hooks, features,... riêng chỉ có trong trang đó.
+    Thư mục pages chứa các file định dạng một trang web cụ thể.
 
 - **Redux**
 
