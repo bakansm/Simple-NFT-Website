@@ -17,11 +17,11 @@ Xây dựng trang web ( tương tự Pinterest ) có khả năng hiển thị v�
 
 ## Cấu trúc thư mục
 
-Cây thư mục được tổ chức theo mô hình phân loại, nghĩa là nhóm các file code có các functions có cùng chức năng lại với nhau.
+Cấu trúc thư mục được tổ chức theo mô hình phân loại (by kind), nghĩa là nhóm các file code có các functions có cùng chức năng lại với nhau.
 
 ### Public
 
-Thư mục public dùng để chứa file root html, các icons, hình ảnh và font chữ.
+Thư mục public là một thư mục đặc biệt dùng để chứa những tài nguyên tĩnh như là các icons, hình ảnh và font chữ, file javascript, file root html,...
 
 ### Src
 
