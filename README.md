@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# Final Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Mô tả
 
-## Available Scripts
+Xây dựng trang web ( tương tự Pinterest ) có khả năng hiển thị và tương tác với các NFTs
 
-In the project directory, you can run:
+## Yêu cầu
 
-### `npm start`
+- Kết nối ví Metamask
+- Hiển thị các NFT Contract ở trang Home.
+- Hiển thị các NFT User ở trang Profile.
+- Biến link ảnh thành Link NFT (Database có thể lấy của người khác hoặc tự tạo).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Thời gian thực hiện
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+01/06/2023 - 15/06/2023 (6 ngày)
 
-### `npm test`
+## Cấu trúc thư mục
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Cây thư mục được tổ chức theo mô hình phân loại, nghĩa là nhóm các file code có các functions có cùng chức năng lại với nhau.
 
-### `npm run build`
+### Public
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Thư mục public dùng để chứa file root html, các icons, hình ảnh và font chữ.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Src
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Thư mục src chứa source code của trang web.
 
-### `npm run eject`
+- **Components**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    Thư mục components chứa các file định dạng các components mà những component này có thể được tái sử dụng ở nhiều trang trên web app.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Connectors**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    Thư mục connectors chứa các file dùng để định nghĩa khởi tạo các connector tới contract như Metamask, Coinbase, WalletConnect
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **Contracts**
 
-## Learn More
+    Thư mục contracts chứa file có chức năng khởi tạo contract, các method được sử dụng để tương tác với contract.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Layouts**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Thư mục layouts chứa các file định dạng layout cho một trang. Những layout này có thể tái sử dụng trong nhiều trang khác nhau.
+
+- **Pages**
+
+    Thư mục pages chứa các file định dạng một trang web cụ thể. Trong thư mục này, mỗi trang Web là 1 thư mục cụ thể và có thể gồm nhiều components, hooks, features,... riêng chỉ có trong trang đó.
+
+- **Redux**
+
+    Thư mục redux chứa các action, store và reducer được sử dụng trong các trang.
+
+- **SCSS**
+
+    Chứa các file SCSS dùng để tái định dạng lại các style sẵn trong bootstrap.
+
+- **Utils**
+
+    Chứa các file định nghĩa những action phức tạp và có thể tái sử dụng ở nhiều trang.
+
+## Các chức năng đã thực hiện
+
+- Connect và disconnect ví Metamask.
+- Kết nối với Infura để có thể xem các NFT trên Contract khi không có ví Metamask.
+- Hiển thị các NFT đã được mint và chưa được mint trên trang Home.
+- Infinite scroll trang Home.
+- Hiển thị các NFT mà User sở hữu trên trang Profile.
+- Mint các NFT có thể mint.
+- Hiển thị thông tin của từng NFT.
