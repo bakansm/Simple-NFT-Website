@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getNFTData, getOwnerOf, mintNFT } from '../../contracts';
-import PageLoadingSpinner from '../../components/common/PageLoadingSpinner';
+import PageLoadingSpinner from '../../components/PageLoadingSpinner';
 import { hooks } from '../../connectors';
 import { metaMask } from '../../connectors';
 

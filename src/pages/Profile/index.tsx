@@ -3,7 +3,7 @@ import '../../scss/overlay.scss';
 import ImgCard from '../../components/common/ImgCard';
 import { useEffect, useState } from 'react';
 import { getAllContractNFTData } from '../../utils/getAllContractNFTData';
-import PageLoadingSpinner from '../../components/common/PageLoadingSpinner';
+import PageLoadingSpinner from '../../components/PageLoadingSpinner';
 import { getNFTBalance, getOwnerOf } from '../../contracts';
 
 const { useAccounts, useIsActive } = hooks;

@@ -12,13 +12,15 @@
 
 .overlay {
 	position: relative;
-}
 
-.overlay:hover .hover-img {
-	opacity: 0.3;
-}
+	&:hover {
+		.hover-img {
+			opacity: 0.3;
+		}
 
-.overlay:hover .overlay-hover {
-	display: flex;
-	cursor: zoom-in;
+		.overlay-hover {
+			display: flex;
+			cursor: zoom-in;
+		}
+	}
 }

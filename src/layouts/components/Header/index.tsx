@@ -1,8 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useWeb3React } from '@web3-react/core';
 import { useEffect } from 'react';
-import { metaMask } from '../../../connectors';
 import { useDispatch } from 'react-redux';
+import { metaMask } from '../../../connectors';
+import logoImage from './assets/images/logo.png';
 
 export default function Header() {
 	const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function Header() {
 					<div className='navbar-brand'>
 						<Link to={'/'}>
 							<img
-								src={'/images/logo.png'}
+								src={logoImage}
 								alt='logo'
 								width={24}
 								height={24}

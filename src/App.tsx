@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import BaseLayout from './layouts/BaseLayout';
+import BaseLayout from './layouts';
 import HomePage from './pages/Home';
 import ProfilePage from './pages/Profile';
 import NFTDetailPage from './pages/NFTDetail';

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ImgCard from '../../components/common/ImgCard';
-import PageLoadingSpinner from '../../components/common/PageLoadingSpinner';
+import PageLoadingSpinner from '../../components/PageLoadingSpinner';
 import LazyLoad from 'react-lazy-load';
 import { getImageFromServer } from '../../utils/getAllContractNFTData';
 import InfiniteScroll from 'react-infinite-scroll-component';
