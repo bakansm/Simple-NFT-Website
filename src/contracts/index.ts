@@ -96,7 +96,7 @@ export const mintNFT = async (address: string) => {
 		);
 		const mintNft = await metamaskContract.safeMint(address);
 		await provider.waitForTransaction(mintNft.hash);
-	} catch (err) {
-		alert('This account cannot mint, pls change the account!');
+	} catch (error) {
+		alert(error);
 	}
 };
