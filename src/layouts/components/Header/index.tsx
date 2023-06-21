@@ -35,7 +35,7 @@ export default function Header() {
 						</Link>
 					</div>
 					<div className='hstack'>
-						<button className='btn nav-item'>
+						<button className='btn nav-item p-0 p-lg-2'>
 							<Link
 								className='nav-link'
 								aria-current='page'

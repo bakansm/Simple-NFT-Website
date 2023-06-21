@@ -8,7 +8,6 @@ export default function NFTDetailPage() {
 	const { data, isLoading, mintStatus, error } = useGetNFTDetail(
 		Number(nftId)
 	);
-
 	return (
 		<>
 			{error ? (
@@ -21,7 +20,7 @@ export default function NFTDetailPage() {
 				</main>
 			) : (
 				data && (
-					<main className='container-fluid d-flex align-items-xl-center justify-content-center py-lg-5'>
+					<main className='h-100 container-fluid d-flex align-items-xl-center justify-content-center py-md-5'>
 						<NFTCard
 							data={data}
 							mintStatus={mintStatus}

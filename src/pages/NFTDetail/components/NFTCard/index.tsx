@@ -36,15 +36,15 @@ export default function NFTCard(props: any) {
 			{props.mintStatus.isPending && <MintPending />}
 			{props.mintStatus.isSuccess && <MintSuccess />}
 			{props.mintStatus.isFail && <MintFail />}
-			<div className='card-body row border-box p-0 p-lg-3'>
-				<div className='col-md g-0 px-lg-3'>
+			<div className='card-body row border-box p-0 p-md-3'>
+				<div className='col-lg g-0 px-md-3 pb-md-3 pb-lg-0'>
 					<LazyLoadImage
 						src={props.data.imageUrl}
 						alt='img'
 						className='card-img'
 					/>
 				</div>
-				<div className='col-md d-flex flex-column justify-content-between g-0 px-lg-3'>
+				<div className='col-lg d-flex flex-column justify-content-between g-0 px-md-3 pt-sm-3 pt-lg-0'>
 					<div className='card-header'>
 						<p className='h3'>NFT #{nftId}</p>
 						{props.data.owner && (

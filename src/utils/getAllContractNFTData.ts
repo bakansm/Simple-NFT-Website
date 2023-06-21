@@ -33,7 +33,7 @@ export const getImageFromServer = async (listLength: number) => {
 		.all(
 			list.map(async (id) => {
 				return axios.get(
-					`https://www.galverse.art/api/metadata/${id.toString()}`
+					`${process.env.REACT_APP_NFT_BASE_API_URL}${id.toString()}`
 				);
 			})
 		)
@@ -42,7 +42,9 @@ export const getImageFromServer = async (listLength: number) => {
 			for (let i of responses) {
 				contractNFTList.push({
 					id: i.data.tokenId,
-					imageUrl: `https://ipfs.io/ipfs/${i.data.image.slice(7)}`,
+					imageUrl: `${
+						process.env.REACT_APP_IMAGE_BASE_URL
+					}${i.data.image.slice(7)}`,
 				});
 			}
 			return contractNFTList;

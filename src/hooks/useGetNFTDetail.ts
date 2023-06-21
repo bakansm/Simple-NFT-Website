@@ -21,7 +21,7 @@ export const useGetNFTDetail = (id: number) => {
 					setData({
 						name: NFTData.name,
 						description: NFTData.description,
-						imageUrl: `https://ipfs.io/ipfs/${NFTData.imageUrl}`,
+						imageUrl: `${process.env.REACT_APP_IMAGE_BASE_URL}${NFTData.imageUrl}`,
 						owner: value,
 					});
 				})
@@ -29,7 +29,7 @@ export const useGetNFTDetail = (id: number) => {
 					setData({
 						name: NFTData.name,
 						description: NFTData.description,
-						imageUrl: `https://ipfs.io/ipfs/${NFTData.imageUrl}`,
+						imageUrl: `${process.env.REACT_APP_IMAGE_BASE_URL}${NFTData.imageUrl}`,
 						owner: null,
 					});
 				});

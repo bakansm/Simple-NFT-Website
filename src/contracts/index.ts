@@ -67,7 +67,7 @@ export const getNFTData = async (tokenId: number) => {
 	const config = {
 		method: 'get',
 		maxBodyLength: Infinity,
-		url: `https://www.galverse.art/api/metadata/${tokenId.toString()}`,
+		url: `${process.env.REACT_APP_NFT_BASE_API_URL}${tokenId.toString()}`,
 		headers: {},
 	};
 
