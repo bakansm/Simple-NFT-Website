@@ -1,18 +1,19 @@
 import { metaMask } from '../../connectors';
 
-const CONNECT = 'CONNECT';
-const DISCONNECT = 'DISCONNECT';
-
 const initialState = {
 	isConnected: false,
 };
 
+enum ActionType {
+	CONNECT = 'CONNECT',
+	DISCONNECT = 'DISCONNECT',
+}
 export interface IInitialState {
 	isConnected: boolean;
 }
 
 type TAction = {
-	type: 'CONNECT' | 'DISCONNECT';
+	type: ActionType;
 	payload?: any;
 };
 
@@ -38,12 +39,12 @@ export const ConnectWalletReducer = async (
 	action: TAction
 ) => {
 	switch (action.type) {
-		case CONNECT:
+		case ActionType.CONNECT:
 			await connectWallet();
 			return {
 				isConnected: true,
 			};
-		case DISCONNECT:
+		case ActionType.DISCONNECT:
 			await disconnectWallet();
 			return { isConnected: true };
 		default:

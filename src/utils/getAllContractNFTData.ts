@@ -21,7 +21,7 @@ export const getAllContractNFTData = async () => {
 			}
 			return contractNFTList;
 		})
-		.catch((error) => console.log(error));
+		.catch((error) => error);
 };
 
 export const getImageFromServer = async (listLength: number) => {
@@ -47,7 +47,5 @@ export const getImageFromServer = async (listLength: number) => {
 			}
 			return contractNFTList;
 		})
-		.catch((error) => {
-			console.log(error);
-		});
+		.catch((error) => error);
 };

@@ -1,100 +1,36 @@
 import { hooks } from '../../connectors';
 import '../../scss/overlay.scss';
-import ImgCard from '../../components/common/ImgCard';
-import { useEffect, useState } from 'react';
-import { getAllContractNFTData } from '../../utils/getAllContractNFTData';
 import PageLoadingSpinner from '../../components/PageLoadingSpinner';
-import { getNFTBalance, getOwnerOf } from '../../contracts';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import './scss/avatar.modules.scss';
+import NFTImageList from './components/NFTImageList';
+import ProfileInfo from './components/ProfileInfo';
+import { useGetAccountNFT } from '../../hooks/useGetAccountNFT';
 
 const { useAccounts, useIsActive } = hooks;
-
 export default function ProfilePage() {
 	const accounts = useAccounts();
 	const isActive = useIsActive();
 
-	const [data, setData] = useState<any>(undefined);
-	const [isLoading, setIsLoading] = useState<boolean>(true);
-	const [balance, setBalance] = useState<number>(0);
+	const { data, isLoading, balance } = useGetAccountNFT(accounts);
 
-	useEffect(() => {
-		if (accounts) {
-			const fetchData = async () => {
-				await getAllContractNFTData()
-					.then(async (value) => {
-						if (value) {
-							const dataList = [];
-							for (let i of value) {
-								const owner = await getOwnerOf(i.id);
-								if (owner === accounts[0])
-									dataList.push({ ...i, owner: owner });
-							}
-							setData(dataList);
-							setIsLoading(false);
-						}
-					})
-					.catch((error) => console.log(error));
-			};
-			setIsLoading(true);
-			fetchData();
-
-			const fetchBalance = async () => {
-				const balance = await getNFTBalance(accounts[0]);
-				setBalance(parseInt(balance.toString()));
-			};
-			fetchBalance();
-		}
-	}, [accounts]);
 	return (
 		<>
 			{!isActive ? (
-				<div
-					className='container-fluid d-flex align-items-center justify-content-center'
-					style={{ height: '93vh' }}>
+				<div className='container-fluid d-flex align-items-center justify-content-center'>
 					<p className='display-3'>Please connect to the wallet!</p>
 				</div>
 			) : (
 				<div className='container-fluid p-5'>
-					<div className='d-flex align-items-center justify-content-center mb-5'>
-						<img
-							src={'/images/logo.png'}
-							alt='avatar'
-							width={120}
-							height={120}
-						/>
-					</div>
-					<p className='h3 text-success text-center'>
-						Address: {accounts}
-					</p>
-					<p className='h3 text-success text-center'>
-						Total NFTs: {balance}
-					</p>
-
-					<hr className='my-4 border-light' />
+					<ProfileInfo balance={balance} />
 					{isLoading ? (
-						<main
-							className='container-fluid d-flex align-items-center justify-content-center flex-column'
-							style={{ height: '92vh' }}>
+						<main className='container-fluid d-flex align-items-center justify-content-center flex-column mt-5'>
 							<PageLoadingSpinner />
 						</main>
 					) : (
-						<div
-							id='collected'
-							className='container-fluid d-grid'>
-							<div
-								className='row row-cols-xxl-6 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2'
-								data-masonry='{"percentPosition": true }'>
-								{data &&
-									data.map((data: any, index: any) => {
-										return (
-											<div
-												key={index}
-												className='col gy-4'>
-												<ImgCard data={data} />
-											</div>
-										);
-									})}
-							</div>
-						</div>
+						<LazyLoadComponent>
+							<NFTImageList data={data} />
+						</LazyLoadComponent>
 					)}
 				</div>
 			)}

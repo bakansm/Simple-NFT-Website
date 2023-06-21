@@ -84,19 +84,18 @@ export const getNFTData = async (tokenId: number) => {
 };
 
 export const mintNFT = async (address: string) => {
-	try {
-		const metamaskProvider = new ethers.providers.Web3Provider(
-			(window as any).ethereum
-		);
-		const metamaskSigner = metamaskProvider.getSigner();
-		const metamaskContract = new ethers.Contract(
-			contractAddress,
-			contractAbi,
-			metamaskSigner
-		);
-		const mintNft = await metamaskContract.safeMint(address);
-		await provider.waitForTransaction(mintNft.hash);
-	} catch (error) {
-		alert(error);
-	}
+	const metamaskProvider = new ethers.providers.Web3Provider(
+		(window as any).ethereum
+	);
+	const metamaskSigner = metamaskProvider.getSigner();
+	const metamaskContract = new ethers.Contract(
+		contractAddress,
+		contractAbi,
+		metamaskSigner
+	);
+	const mintNft = await metamaskContract.safeMint(address);
+	await provider
+		.waitForTransaction(mintNft.hash)
+		.then((value) => value)
+		.catch((error) => error);
 };
