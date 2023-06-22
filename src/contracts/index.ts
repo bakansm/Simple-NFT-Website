@@ -54,6 +54,11 @@ export const getTokenURI = async (tokenId: number) => {
 	return uri;
 };
 
+export const getAmountOfMintedNFT = async () => {
+	const amountOfMintedNFT = await contract.getAllTokenId();
+	return amountOfMintedNFT;
+};
+
 export const getAllNFTIds = async () => {
 	const amountOfId: number = await contract.getAllTokenId();
 	const NFTIdsArr: number[] = [];
@@ -98,4 +103,16 @@ export const mintNFT = async (address: string) => {
 		.waitForTransaction(mintNft.hash)
 		.then((value) => value)
 		.catch((error) => error);
+};
+
+export const filterAccountNFT = async (address: string) => {
+	const accountNFTIdList: number[] = [];
+	const filter = contract.filters.Transfer(null, address);
+	await contract.queryFilter(filter).then((value) =>
+		value.forEach((event) => {
+			const tokenId = event.args ? event.args.tokenId.toString() : null;
+			accountNFTIdList.push(Number(tokenId));
+		})
+	);
+	return accountNFTIdList;
 };

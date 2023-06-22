@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getAllContractNFTData } from '../utils/getAllContractNFTData';
-import { getNFTBalance, getOwnerOf } from '../contracts';
+import { filterAccountNFT, getNFTBalance } from '../contracts';
 
 export const useGetAccountNFT = (accounts: string[] | undefined) => {
 	const [data, setData] = useState<any>(undefined);
@@ -11,14 +11,15 @@ export const useGetAccountNFT = (accounts: string[] | undefined) => {
 	useEffect(() => {
 		if (accounts) {
 			const fetchData = async () => {
-				await getAllContractNFTData()
+				const NFTIdsList: number[] = await filterAccountNFT(
+					accounts[0]
+				);
+				await getAllContractNFTData(NFTIdsList)
 					.then(async (value) => {
 						if (value) {
 							const dataList = [];
 							for (let i of value) {
-								const owner = await getOwnerOf(i.id);
-								if (owner === accounts[0])
-									dataList.push({ ...i, owner: owner });
+								dataList.push({ ...i });
 							}
 							setData(dataList);
 							setIsLoading(false);

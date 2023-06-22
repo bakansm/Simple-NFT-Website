@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getImageFromServer } from '../utils/getAllContractNFTData';
+import { getImageFromServer } from '../utils/getImageFromServer';
 
 export const useFetchMoreData = () => {
 	const [dataLength, setDataLength] = useState<number>(30);
