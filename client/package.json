@@ -1,7 +1,7 @@
 {
 	"name": "react-typescript",
 	"version": "0.1.0",
-	"homepage": "https://github.com/bakansm/Simple-NFT-Website",
+	"homepage": "https://bakansm.github.io/Simple-NFT-Website",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.5",
