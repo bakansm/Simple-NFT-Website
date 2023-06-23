@@ -4,6 +4,7 @@ import BaseLayout from './layouts';
 import HomePage from './pages/Home';
 import ProfilePage from './pages/Profile';
 import NFTDetailPage from './pages/NFTDetail';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 function App() {
 	return (
@@ -12,25 +13,31 @@ function App() {
 				path='/'
 				index
 				element={
-					<BaseLayout>
-						<HomePage />
-					</BaseLayout>
+					<LazyLoadComponent>
+						<BaseLayout>
+							<HomePage />
+						</BaseLayout>
+					</LazyLoadComponent>
 				}
 			/>
 			<Route
 				path='profile'
 				element={
-					<BaseLayout>
-						<ProfilePage />
-					</BaseLayout>
+					<LazyLoadComponent>
+						<BaseLayout>
+							<ProfilePage />
+						</BaseLayout>
+					</LazyLoadComponent>
 				}
 			/>
 			<Route
 				path='nft-detail/:nftId'
 				element={
-					<BaseLayout>
-						<NFTDetailPage />
-					</BaseLayout>
+					<LazyLoadComponent>
+						<BaseLayout>
+							<NFTDetailPage />
+						</BaseLayout>
+					</LazyLoadComponent>
 				}
 			/>
 		</Routes>
