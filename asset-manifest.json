@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/bakansm/Simple-NFT-Website/static/css/main.e1b01964.css",
-    "main.js": "/bakansm/Simple-NFT-Website/static/js/main.8921c4cd.js",
-    "static/js/787.1f013cd5.chunk.js": "/bakansm/Simple-NFT-Website/static/js/787.1f013cd5.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/bakansm/Simple-NFT-Website/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
-    "static/media/bootstrap-icons.woff2?": "/bakansm/Simple-NFT-Website/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
-    "static/media/logo.png": "/bakansm/Simple-NFT-Website/static/media/logo.67edc8d8bc916c2bc922.png",
-    "index.html": "/bakansm/Simple-NFT-Website/index.html",
-    "main.e1b01964.css.map": "/bakansm/Simple-NFT-Website/static/css/main.e1b01964.css.map",
-    "main.8921c4cd.js.map": "/bakansm/Simple-NFT-Website/static/js/main.8921c4cd.js.map",
-    "787.1f013cd5.chunk.js.map": "/bakansm/Simple-NFT-Website/static/js/787.1f013cd5.chunk.js.map"
+    "main.css": "/Simple-NFT-Website/static/css/main.04aeeb7f.css",
+    "main.js": "/Simple-NFT-Website/static/js/main.91db324d.js",
+    "static/js/787.1f013cd5.chunk.js": "/Simple-NFT-Website/static/js/787.1f013cd5.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/Simple-NFT-Website/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/Simple-NFT-Website/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
+    "static/media/logo.png": "/Simple-NFT-Website/static/media/logo.67edc8d8bc916c2bc922.png",
+    "index.html": "/Simple-NFT-Website/index.html",
+    "main.04aeeb7f.css.map": "/Simple-NFT-Website/static/css/main.04aeeb7f.css.map",
+    "main.91db324d.js.map": "/Simple-NFT-Website/static/js/main.91db324d.js.map",
+    "787.1f013cd5.chunk.js.map": "/Simple-NFT-Website/static/js/787.1f013cd5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1b01964.css",
-    "static/js/main.8921c4cd.js"
+    "static/css/main.04aeeb7f.css",
+    "static/js/main.91db324d.js"
   ]
 }
