@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export default function MintSuccess() {
-	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	return (
 		<div className='w-100 h-100 bg-light d-flex align-items-center justify-content-center flex-column position-absolute top-0 left-0'>
@@ -13,7 +13,7 @@ export default function MintSuccess() {
 			</div>
 			<button
 				className='btn btn-success'
-				onClick={() => navigate(0)}>
+				onClick={() => dispatch({ type: 'RESET' })}>
 				Confirm
 			</button>
 		</div>

@@ -33,9 +33,9 @@ export default function NFTCard(props: any) {
 
 	return (
 		<div className='card p-0 container-lg shadow h-auto overflow-hidden'>
-			{props.mintStatus.isPending && <MintPending />}
-			{props.mintStatus.isSuccess && <MintSuccess />}
-			{props.mintStatus.isFail && <MintFail />}
+			{props.mintNFTStatus.isPending && <MintPending />}
+			{props.mintNFTStatus.isSuccess && <MintSuccess />}
+			{props.mintNFTStatus.isFail && <MintFail />}
 			<div className='card-body row border-box p-0 p-md-3'>
 				<div className='col-lg g-0 px-md-3 pb-md-3 pb-lg-0'>
 					<LazyLoadImage

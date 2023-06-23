@@ -2,12 +2,13 @@ import { useParams } from 'react-router-dom';
 import PageLoadingSpinner from '../../components/PageLoadingSpinner';
 import { useGetNFTDetail } from '../../hooks/useGetNFTDetail';
 import NFTCard from './components/NFTCard';
+import { useSelector } from 'react-redux';
 
 export default function NFTDetailPage() {
 	const { nftId } = useParams();
-	const { data, isLoading, mintStatus, error } = useGetNFTDetail(
-		Number(nftId)
-	);
+	const { data, isLoading, error } = useGetNFTDetail(Number(nftId));
+	const mintNFTStatus = useSelector<any>((state) => state.mintNFTStatus);
+
 	return (
 		<>
 			{error ? (
@@ -23,7 +24,7 @@ export default function NFTDetailPage() {
 					<main className='h-100 container-fluid d-flex align-items-xl-center justify-content-center py-md-5'>
 						<NFTCard
 							data={data}
-							mintStatus={mintStatus}
+							mintNFTStatus={mintNFTStatus}
 						/>
 					</main>
 				)

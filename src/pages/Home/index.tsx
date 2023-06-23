@@ -1,21 +1,10 @@
 import PageLoadingSpinner from '../../components/PageLoadingSpinner';
 import NFTImageList from './components/NFTImageList';
 import { useFetchMoreData } from '../../hooks/useGetImageList';
-import { hooks } from '../../connectors';
-import { filterAccountNFT } from '../../contracts';
 
-const { useAccounts } = hooks;
 export default function HomePage() {
 	const { data, isLoading, hasMore, fetchMoreData, dataLength } =
 		useFetchMoreData();
-
-	const account = useAccounts();
-
-	const onClickHandle = (account: any) => {
-		if (account) {
-			filterAccountNFT(account[0]);
-		}
-	};
 
 	return (
 		<>
