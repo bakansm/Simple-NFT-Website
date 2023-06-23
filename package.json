@@ -1,7 +1,6 @@
 {
 	"name": "react-typescript",
 	"version": "0.1.0",
-	"homepage": "https://bakansm.github.io/Simple-NFT-Website",
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.5",
@@ -37,9 +36,6 @@
 		"web3": "^1.10.0"
 	},
 	"scripts": {
-		"analyze": "source-map-explorer 'build/static/js/*.js'",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
